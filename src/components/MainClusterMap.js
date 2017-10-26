@@ -15,7 +15,7 @@ export const MapWithAMarkerClusterer = compose(
     googleMapURL:
     "https://maps.googleapis.com/maps/api/js?key=AIzaSyCAtOR22dFh332IHfRJAocrMCOdv3H084w",
     loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: `400px` }} />,
+    containerElement: <div style={{ height: `600px` }} />,
     mapElement: <div style={{ height: `100%` }} />
   }),
   withScriptjs,
@@ -42,12 +42,12 @@ export const MapWithAMarkerClusterer = compose(
     }
   })
 )(props => (
-  <GoogleMap defaultZoom={2} defaultCenter={{ lat: 59.3, lng: 18.1 }}>
+  <GoogleMap defaultZoom={2} defaultCenter={{ lat: 38.54, lng: 18.98 }}>
     <MarkerClusterer averageCenter enableRetinaIcons gridSize={60}>
       {props.markers.map((marker, index) => (
         <Marker
           key={index}
-          position={{ lat: marker.latitude, lng: marker.longitude }}
+          position={{ lat: marker.Latitude, lng: marker.Longitude }}
         />
       ))}
     </MarkerClusterer>

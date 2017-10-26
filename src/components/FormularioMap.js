@@ -1,6 +1,6 @@
 import React from "react"
 import { compose, withProps } from "recompose"
-import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps"
+import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 
 const MyMapComponent = compose(
 	withProps({
@@ -10,11 +10,11 @@ const MyMapComponent = compose(
 		mapElement: <div style={{ height: `100%` }} />,
 	}),
 	withScriptjs,
-	withGoogleMap
+	withGoogleMap,
 )((props) =>
 	<GoogleMap
 		defaultZoom={8}
-		defaultCenter={{ lat: -34.397, lng: 150.644 }}
+		defaultCenter={{ lat: 18.60, lng: -70.24 }}
 		onClick={props.onMapClick}
 	>
 	</GoogleMap>
@@ -26,7 +26,10 @@ export class FormularioMap extends React.Component {
 		return (
 			<MyMapComponent
 				onMapClick={this.props.onMapClick}
-			/>
+			>
+			<Marker position={{ lat: Number(this.props.Latitude), lng: Number(this.props.Longitude)}}/>
+			</MyMapComponent>
+			
 		)
 	}
 }
